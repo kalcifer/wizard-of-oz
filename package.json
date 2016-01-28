@@ -1,6 +1,6 @@
 {
   "name": "wizard-of-oz",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "wizard of oz",
   "scripts": {
     "test": "eslint lib/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --inline --hot",
     "postinstall": "bower install"
   },
-  "author": "",
+  "author": "Pavithra K",
   "license": "BSD",
   "keywords": [
     "react",
