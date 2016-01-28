@@ -44,5 +44,8 @@
   },
   "browserify": {
     "transform": ["reactify"]
+  },
+  "externals":{
+    "react":"React"
   }
 }
