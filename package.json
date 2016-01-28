@@ -1,6 +1,6 @@
 {
   "name": "wizard-of-oz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React js component for a step wizard",
   "main": "lib/wizard-of-oz.js",
   "license": "MIT",
