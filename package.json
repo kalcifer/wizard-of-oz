@@ -1,17 +1,15 @@
 {
   "name": "wizard-of-oz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React js component for a step wizard",
   "main": "lib/wizard-of-oz.js",
   "license": "MIT",
   "author": {
     "name": "@pksjce",
     "email": "pavithra.kodmad@gmail.com",
-    "url": ""
+    "url": "https://github.com/kalcifer/wizard-of-oz.git"
   },
   "dependencies": {
-    "react": "^0.14.4",
-    "react-dom": "^0.14.6"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
@@ -26,11 +24,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/kalcifer/wizard-of-oz.git"
   },
   "homepage": "",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/kalcifer/wizard-of-oz/issues"
   },
   "devDependencies": {
     "babel": "^6.3.26",
@@ -40,7 +38,9 @@
     "babel-preset-react": "^6.3.13",
     "css-loader": "^0.23.1",
     "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "react": "^0.14.4",
+    "react-dom": "^0.14.6"
   },
   "browserify": {
     "transform": ["reactify"]
