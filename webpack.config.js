@@ -8,9 +8,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname),
-    filename: 'wizard-of-oz.js',
-    libraryTarget: 'umd',
-    library: 'WizardOfOz'
+    filename: 'wizard-of-oz.js'
   },
 
   externals: {
