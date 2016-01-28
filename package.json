@@ -1,6 +1,6 @@
 {
   "name": "wizard-of-oz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React js component for a step wizard",
   "main": "lib/wizard-of-oz.js",
   "license": "MIT",
@@ -10,6 +10,9 @@
     "url": "https://github.com/kalcifer/wizard-of-oz.git"
   },
   "dependencies": {
+  },
+  "peerDependencies": {
+    "react": "^0.14.0"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
@@ -39,13 +42,9 @@
     "css-loader": "^0.23.1",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1",
-    "react": "^0.14.4",
     "react-dom": "^0.14.6"
   },
   "browserify": {
     "transform": ["reactify"]
-  },
-  "externals":{
-    "react":"React"
   }
 }
