@@ -49,8 +49,9 @@ export const Wizard = React.createClass({
     if(steps && steps.length > 0){
         var length = steps.length;
         var currentStep = steps[this.state.currentStepNo]
+        var currentStepWithGoto = React.cloneElement(currentStep.component, {goto:this.goto})
         html = (<div>
-                    {currentStep.component}
+                    {currentStepWithGoto}
                     {this.getButtons(currentStep.disabledButtons || [], this.state.currentStepNo, length)}
                   </div>
               )
@@ -67,6 +68,9 @@ export const Step = React.createClass({
 
     }
   },
+  goto(position){
+    this.props.goto(position)
+  },
   render(){
     if(this.props.type === 'text'){
       return (
@@ -75,8 +79,11 @@ export const Step = React.createClass({
         </div>
       )
     } else {
+      var childrenWithGoto = React.Children.map(this.props.children, function(child){
+        return React.cloneElement(child, {goto : this.goto})
+      })
       return(
-        <div>{this.props.children}</div>
+        <div>{childrenWithGoto}</div>
       )
     }
   }
