@@ -26,15 +26,23 @@ export const Wizard = React.createClass({
     var steps = this.props.steps;
     var currentStepNo = this.state.currentStepNo;
     if(currentStepNo > -1 && currentStepNo < steps.length){
-      var nextStepNo
-      switch(position){
-        case 'back' :
-          nextStepNo = currentStepNo - 1;
-          break;
-        case 'next' :
-          nextStepNo = currentStepNo + 1;
-          break;
+      var nextStepNo;
+      if(isNaN(parseInt(position))){
+        switch(position){
+          case 'back' :
+            nextStepNo = currentStepNo - 1;
+            break;
+          case 'next' :
+            nextStepNo = currentStepNo + 1;
+            break;
+        }
+
+      } else {
+        if(position > -1 && position < steps.length && position != currentStepNo){
+          nextStepNo = position
+        }
       }
+
       this.setState({
         currentStepNo: nextStepNo
       })
