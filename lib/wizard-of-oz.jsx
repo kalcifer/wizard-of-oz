@@ -102,7 +102,7 @@ export const Step = React.createClass({
 
     } else {
       var childrenWithGoto = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child, { goto: this.goto, addData: this.props.addData });
+        return React.cloneElement(child, { goto: this.goto, addData: this.props.addData, wizardData: this.props.wizardData });
       });
       return <div>{childrenWithGoto}</div>
     }

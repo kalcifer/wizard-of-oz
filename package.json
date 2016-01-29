@@ -1,6 +1,6 @@
 {
   "name": "wizard-of-oz",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "wizard of oz",
   "scripts": {
     "test": "eslint lib/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
