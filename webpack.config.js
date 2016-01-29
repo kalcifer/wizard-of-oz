@@ -3,6 +3,7 @@ var path = require('path');
 
 
 module.exports = {
+  devtool: 'inline-source-map',
   context: path.join(__dirname),
   entry: './lib/index.js',
 
