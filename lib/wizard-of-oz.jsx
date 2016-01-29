@@ -4,7 +4,8 @@ import './wizard-of-oz.scss';
 export const Wizard = React.createClass({
   getInitialState(){
     return {
-        currentStepNo:0
+        currentStepNo:0,
+        prevStepNo:-1
     }
 
   },
@@ -24,13 +25,13 @@ export const Wizard = React.createClass({
   },
   goto(position){
     var steps = this.props.steps;
-    var currentStepNo = this.state.currentStepNo;
+    var { currentStepNo, prevStepNo } = this.state;
     if(currentStepNo > -1 && currentStepNo < steps.length){
       var nextStepNo;
       if(isNaN(parseInt(position))){
         switch(position){
           case 'back' :
-            nextStepNo = currentStepNo - 1;
+            nextStepNo = prevStepNo === -1 ? currentStepNo - 1 : prevStepNo;
             break;
           case 'next' :
             nextStepNo = currentStepNo + 1;
@@ -44,7 +45,8 @@ export const Wizard = React.createClass({
       }
 
       this.setState({
-        currentStepNo: nextStepNo
+        currentStepNo: nextStepNo,
+        prevStepNo: currentStepNo
       })
 
     } else {
