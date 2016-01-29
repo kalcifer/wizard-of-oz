@@ -32,7 +32,7 @@ export const Wizard = React.createClass({
       if(isNaN(parseInt(position))){
         switch(position){
           case 'back' :
-            nextStepNo = prevStepNo === -1 ? currentStepNo - 1 : prevStepNo;
+            nextStepNo = prevStepNo === -1 && prevStepNo >= currentStepNo? currentStepNo - 1 : prevStepNo;
             break;
           case 'next' :
             nextStepNo = currentStepNo + 1;
@@ -94,6 +94,9 @@ export const Step = React.createClass({
   goto(position){
     this.props.goto(position)
   },
+  addData(data){
+    this.props.addData(data)
+  },
   renderType(){
     if(this.props.type === 'text'){
       return(<div>
@@ -102,7 +105,7 @@ export const Step = React.createClass({
 
     } else {
       var childrenWithGoto = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child, { goto: this.goto, addData: this.props.addData, wizardData: this.props.wizardData });
+        return React.cloneElement(child, { goto: this.goto, addData: this.addData, wizardData: this.props.wizardData });
       });
       return <div>{childrenWithGoto}</div>
     }
