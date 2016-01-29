@@ -5,7 +5,8 @@ export const Wizard = React.createClass({
   getInitialState(){
     return {
         currentStepNo:0,
-        prevStepNo:-1
+        prevStepNo:-1,
+        data:{}
     }
 
   },
@@ -53,13 +54,25 @@ export const Wizard = React.createClass({
       alert('No way!')
     }
   },
+  addData(data){
+    this.setState({
+      data: Object.assign({}, this.state.data, data)
+    })
+  },
   render(){
     var html;
     var steps = this.props.steps;
     if(steps && steps.length > 0){
         var length = steps.length;
         var currentStep = steps[this.state.currentStepNo]
-        var currentStepWithGoto = React.cloneElement(currentStep.component, {goto:this.goto, name: currentStep.name})
+        var currentStepWithGoto = React.cloneElement(currentStep.component,
+                                                    {
+                                                      goto:this.goto,
+                                                      addData:this.addData,
+                                                      name: currentStep.name,
+                                                      wizardData: this.props.data,
+                                                      passData:this.state.data
+                                                    })
         html = (<div>
                     {currentStepWithGoto}
                     {this.getButtons(currentStep.disabledButtons || [], this.state.currentStepNo, length)}
@@ -81,6 +94,9 @@ export const Step = React.createClass({
   goto(position){
     this.props.goto(position)
   },
+  addData(data){
+    this.props.addData(data);
+  },
   renderType(){
     if(this.props.type === 'text'){
       return (
@@ -90,7 +106,7 @@ export const Step = React.createClass({
       )
     } else {
       var childrenWithGoto = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child, { goto: this.goto });
+        return React.cloneElement(child, { goto: this.goto, addData: this.addData });
       });
       return(
         <div>{childrenWithGoto}</div>
