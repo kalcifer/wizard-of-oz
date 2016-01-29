@@ -96,10 +96,10 @@ export const Step = React.createClass({
   },
   renderType(){
     if(this.props.type === 'text'){
-      return 
-        <div>
-          {this.props.text}
-        </div>
+      return(<div>
+        {this.props.text}
+      </div>)
+
     } else {
       var childrenWithGoto = React.Children.map(this.props.children, (child) => {
         return React.cloneElement(child, { goto: this.goto, addData: this.props.addData });
@@ -108,10 +108,10 @@ export const Step = React.createClass({
     }
   },
   render(){
-      return
-        <div>
-          <h5>{this.props.name}</h5>
-          {this.renderType()}
-        </div>
+      return (<div>
+        <h5>{this.props.name}</h5>
+        {this.renderType()}
+      </div>)
+
   }
 })
