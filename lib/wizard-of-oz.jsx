@@ -79,7 +79,7 @@ export const Wizard = React.createClass({
                   </div>
               )
     } else {
-      html = (<div>No steps here</div>)
+      html = (<div>No steps there</div>)
     }
     return html;
   }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Wizard, Step } from '../../../src'
+import { Wizard, Step } from '../../../lib'
 import { FirstStep } from './steps'
 
-const Steps = [
+const Steps1 = [
   {name:'Step 1', component : <Step type='component' children={<FirstStep/>}/>},
   {name:'Step 2', component : <Step type='text' text='Step 2'/>},
   {name:'Step 3', component : <Step type='text' text='Step 3'/>},
@@ -12,7 +12,7 @@ const Steps = [
 
 const Simple = React.createClass({
   render(){
-    return (<Wizard steps={Steps}/>)
+    return (<Wizard steps={Steps1}/>)
   }
 })
 

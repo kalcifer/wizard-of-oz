@@ -5,9 +5,9 @@
   "scripts": {
     "test": "eslint lib/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
     "watch-test": "./node_modules/karma/bin/karma start karma.conf.js --auto-watch --no-single-run",
-    "build": "webpack -p",
+    "build": "webpack --config webpack.config.js",
     "rename-css-bower-dependencies": "find bower_components -name '*.css' | sed -e 'p;s/.css$/.scss/' | xargs -n2 mv",
-    "start": "webpack-dev-server --inline --hot",
+    "start": "webpack-dev-server --inline --hot --config webpack.example.js",
     "postinstall": "bower install"
   },
   "author": "Pavithra K",
@@ -33,6 +33,8 @@
     "karma-phantomjs-launcher": "~0.2.1",
     "karma-sourcemap-loader": "~0.3.5",
     "karma-webpack": "~1.7.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "sass-loader": "~2.0.1",
     "style-loader": "~0.12.3",
     "webpack": "~1.11.0",
