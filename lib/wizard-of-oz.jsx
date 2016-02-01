@@ -32,7 +32,7 @@ export const Wizard = React.createClass({
       if(isNaN(parseInt(position))){
         switch(position){
           case 'back' :
-            nextStepNo = prevStepNo === -1 && prevStepNo >= currentStepNo? currentStepNo - 1 : prevStepNo;
+            nextStepNo = prevStepNo !== -1 && prevStepNo >= currentStepNo? currentStepNo - 1 : prevStepNo;
             break;
           case 'next' :
             nextStepNo = currentStepNo + 1;
